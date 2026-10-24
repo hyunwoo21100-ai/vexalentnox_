@@ -1,0 +1,493 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+  <title>VEXALENTNOX | Official Guild</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #080808;
+      color: #f5f5f5;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(8, 8, 8, 0.94);
+      border-bottom: 1px solid #292929;
+      padding: 18px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      backdrop-filter: blur(12px);
+    }
+
+    .logo {
+      font-weight: 900;
+      letter-spacing: 3px;
+      font-size: 19px;
+    }
+
+    nav {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      font-size: 12px;
+      color: #aaa;
+      transition: color .2s;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 80px 7%;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at center, #242424 0%, #101010 40%, #080808 75%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border: 1px solid #ffffff12;
+      transform: rotate(45deg);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 6px;
+      color: #aaa;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(38px, 8vw, 88px);
+      letter-spacing: clamp(3px, 1vw, 12px);
+      line-height: 1.15;
+      font-weight: 900;
+    }
+
+    .subtitle {
+      margin-top: 24px;
+      color: #bcbcbc;
+      font-size: 14px;
+      letter-spacing: 2px;
+    }
+
+    .line {
+      width: 65px;
+      height: 2px;
+      background: white;
+      margin: 28px auto;
+    }
+
+    .hero p {
+      max-width: 580px;
+      margin: auto;
+      color: #b0b0b0;
+    }
+
+    .section {
+      padding: 90px 9%;
+      border-bottom: 1px solid #1e1e1e;
+    }
+
+    .section:nth-of-type(even) {
+      background: #0d0d0d;
+    }
+
+    .section-label {
+      color: #777;
+      font-size: 11px;
+      letter-spacing: 4px;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: clamp(26px, 4vw, 42px);
+      margin-bottom: 24px;
+      letter-spacing: 1px;
+    }
+
+    .description {
+      max-width: 780px;
+      color: #b7b7b7;
+    }
+
+    .highlight {
+      color: white;
+      font-weight: bold;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 35px;
+    }
+
+    .card {
+      border: 1px solid #303030;
+      background: linear-gradient(145deg, #151515, #0a0a0a);
+      padding: 28px;
+      transition: transform .25s, border-color .25s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #888;
+    }
+
+    .card-number {
+      color: #777;
+      font-size: 12px;
+      letter-spacing: 3px;
+    }
+
+    .card h3 {
+      margin: 14px 0 10px;
+      font-size: 19px;
+    }
+
+    .card p {
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .rules {
+      list-style: none;
+      max-width: 850px;
+    }
+
+    .rules li {
+      padding: 17px 0;
+      border-bottom: 1px solid #292929;
+      color: #bcbcbc;
+    }
+
+    .rules li::before {
+      content: "✦";
+      color: white;
+      margin-right: 14px;
+    }
+
+    .rules strong {
+      color: white;
+    }
+
+    .quote {
+      margin-top: 30px;
+      padding: 22px;
+      border-left: 2px solid white;
+      background: #111;
+      color: #ddd;
+      font-style: italic;
+    }
+
+    .join {
+      padding: 100px 7%;
+      text-align: center;
+      background: linear-gradient(180deg, #101010, #050505);
+    }
+
+    .join p {
+      color: #aaa;
+      max-width: 560px;
+      margin: 0 auto 32px;
+    }
+
+    .join-button {
+      display: inline-block;
+      background: white;
+      color: black;
+      padding: 16px 35px;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 3px;
+      border: 1px solid white;
+      transition: .25s;
+    }
+
+    .join-button:hover {
+      background: transparent;
+      color: white;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 15px;
+      background: #050505;
+      border-top: 1px solid #252525;
+      color: #666;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        padding: 15px;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 13px;
+      }
+
+      .section {
+        padding: 65px 7%;
+      }
+
+      .hero {
+        min-height: 78vh;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a href="#home" class="logo">VEXALENTNOX</a>
+    <nav>
+      <a href="#arti">ARTI</a>
+      <a href="#cara-kerja">CARA KERJA</a>
+      <a href="#peraturan">PERATURAN</a>
+      <a href="#sejarah">ASAL USUL</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="eyebrow">OFFICIAL GUILD COMMUNITY</div>
+        <h1>VEXALENT<br>NOX</h1>
+        <div class="subtitle">ONE NAME. ONE PURPOSE. ONE LEGACY.</div>
+        <div class="line"></div>
+        <p>
+          Bukan sekadar nama. Ini adalah identitas, tempat membangun
+          kepercayaan, menyatukan kekuatan, dan menciptakan sejarah bersama.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="arti">
+      <div class="section-label">01 — THE MEANING</div>
+      <h2>Apa Arti VEXALENTNOX?</h2>
+      <p class="description">
+        <span class="highlight">VEXALENTNOX</span> adalah nama guild dengan
+        identitas yang dibangun dari kesan misterius, ketegasan, dan kekuatan.
+        Nama ini dirancang untuk mewakili komunitas yang mengutamakan loyalitas,
+        solidaritas, dan perkembangan bersama.
+        <br><br>
+        Nama ini dapat dimaknai melalui dua unsur simbolis:
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <div class="card-number">01 / VEXALENT</div>
+          <h3>Strength & Identity</h3>
+          <p>
+            Melambangkan karakter yang kuat, berani menghadapi tantangan,
+            dan memiliki identitas yang tidak mudah dilupakan.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-number">02 / NOX</div>
+          <h3>The Night</h3>
+          <p>
+            Nox berarti malam dalam bahasa Latin. Melambangkan misteri,
+            ketenangan, dan kekuatan yang tetap bersinar dalam kegelapan.
+          </p>
+        </div>
+      </div>
+
+      <div class="quote">
+        "Kekuatan bukan tentang siapa yang paling menonjol,
+        melainkan siapa yang tetap berdiri bersama."
+      </div>
+    </section>
+
+    <section class="section" id="cara-kerja">
+      <div class="section-label">02 — THE SYSTEM</div>
+      <h2>Bagaimana Guild Ini Bekerja?</h2>
+      <p class="description">
+        VEXALENTNOX dibangun dengan sistem komunitas yang mengutamakan
+        komunikasi, kerja sama, dan tanggung jawab setiap anggota.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <div class="card-number">STEP 01</div>
+          <h3>Recruitment</h3>
+          <p>Calon anggota mengisi formulir pendaftaran dan menunggu proses seleksi dari pengurus.</p>
+        </div>
+        <div class="card">
+          <div class="card-number">STEP 02</div>
+          <h3>Adaptation</h3>
+          <p>Anggota baru mengenal sistem, budaya, komunikasi, dan aturan guild.</p>
+        </div>
+        <div class="card">
+          <div class="card-number">STEP 03</div>
+          <h3>Contribution</h3>
+          <p>Setiap anggota berpartisipasi sesuai kemampuan dan tujuan komunitas.</p>
+        </div>
+        <div class="card">
+          <div class="card-number">STEP 04</div>
+          <h3>Development</h3>
+          <p>Guild berkembang melalui evaluasi, kerja sama, dan kontribusi seluruh anggota.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="peraturan">
+      <div class="section-label">03 — THE CODE</div>
+      <h2>Peraturan Guild</h2>
+      <p class="description">
+        Setiap anggota memiliki tanggung jawab untuk menjaga nama baik
+        VEXALENTNOX. Berikut aturan dasar yang wajib dipatuhi.
+      </p>
+
+      <ul class="rules">
+        <li><strong>Respect Everyone.</strong> Hormati semua anggota tanpa merendahkan satu sama lain.</li>
+        <li><strong>No Toxicity.</strong> Dilarang melakukan penghinaan, perundungan, atau provokasi berlebihan.</li>
+        <li><strong>Stay Loyal.</strong> Jaga kepercayaan dan jangan menyalahgunakan nama guild.</li>
+        <li><strong>Follow the System.</strong> Patuhi keputusan pengurus selama sesuai dengan aturan komunitas.</li>
+        <li><strong>Be Responsible.</strong> Bertanggung jawab atas ucapan, tindakan, dan aktivitas pribadi.</li>
+        <li><strong>No Cheating.</strong> Dilarang menggunakan cara curang atau melakukan tindakan yang merugikan komunitas.</li>
+        <li><strong>Active Participation.</strong> Usahakan berpartisipasi dalam kegiatan guild sesuai kesepakatan.</li>
+        <li><strong>Keep It Confidential.</strong> Jangan menyebarkan informasi internal tanpa izin.</li>
+      </ul>
+
+      <div class="quote">
+        Pelanggaran dapat dikenai teguran, evaluasi, pembatasan akses,
+        atau dikeluarkan dari guild sesuai tingkat pelanggaran.
+      </div>
+    </section>
+
+    <section class="section" id="sejarah">
+      <div class="section-label">04 — THE ORIGIN</div>
+      <h2>Bagaimana VEXALENTNOX Bisa Terbentuk?</h2>
+      <p class="description">
+        VEXALENTNOX dapat terbentuk dari sebuah gagasan sederhana:
+        menciptakan tempat bagi orang-orang yang memiliki visi yang sama.
+        Sebuah komunitas tidak harus dimulai dengan banyak anggota,
+        tetapi dengan tujuan yang jelas dan orang-orang yang mau berkembang.
+        <br><br>
+        Dimulai dari perintis yang menyusun identitas dan aturan, kemudian
+        mengajak anggota pertama, membangun komunikasi, menetapkan peran
+        pengurus, dan mengembangkan kegiatan bersama. Dari proses itu,
+        terbentuklah fondasi guild yang dapat terus berkembang seiring waktu.
+        <br><br>
+        Perjalanan dan sejarah resmi VEXALENTNOX nantinya dapat diisi
+        berdasarkan kisah nyata para pendirinya.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <div class="card-number">FOUNDATION</div>
+          <h3>Satu Visi</h3>
+          <p>Memiliki tujuan dan nilai yang ingin diperjuangkan bersama.</p>
+        </div>
+        <div class="card">
+          <div class="card-number">UNITY</div>
+          <h3>Satu Tim</h3>
+          <p>Menggabungkan kemampuan berbeda menjadi kekuatan kolektif.</p>
+        </div>
+        <div class="card">
+          <div class="card-number">LEGACY</div>
+          <h3>Satu Warisan</h3>
+          <p>Membangun reputasi melalui tindakan, bukan sekadar nama.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="identitas">
+      <div class="section-label">05 — OUR IDENTITY</div>
+      <h2>Filosofi Hitam & Putih</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>BLACK — Mystery</h3>
+          <p>Melambangkan ketegasan, ketenangan, kedalaman karakter, dan ketahanan.</p>
+        </div>
+        <div class="card">
+          <h3>WHITE — Unity</h3>
+          <p>Melambangkan kejelasan tujuan, integritas, kejujuran, dan solidaritas.</p>
+        </div>
+      </div>
+      <div class="quote">
+        VEXALENTNOX — Dibangun dengan prinsip. Diperkuat oleh persatuan.
+        Dikenang melalui tindakan.
+      </div>
+    </section>
+
+    <section class="join" id="daftar">
+      <div class="section-label">YOUR JOURNEY STARTS HERE</div>
+      <h2>Siap Menjadi Bagian dari VEXALENTNOX?</h2>
+      <p>
+        Punya semangat, siap berkembang, dan ingin menjadi bagian dari
+        komunitas ini? Ambil langkah pertamamu sekarang.
+      </p>
+
+      <a
+        class="join-button"
+        href="https://forms.gle/hqFJsefeaBnHtCvRA"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        DAFTAR SEKARANG ↗
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    © VEXALENTNOX — OFFICIAL GUILD COMMUNITY
+    <br>
+    <span style="display:inline-block;margin-top:8px">
+      ONE NAME. ONE PURPOSE. ONE LEGACY.
+    </span>
+  </footer>
+
+</body>
+</html>
